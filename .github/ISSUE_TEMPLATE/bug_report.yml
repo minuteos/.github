@@ -1,0 +1,85 @@
+name: '🐞 Bug report'
+description: Report a bug to help improve the project
+title: 'bug: '
+labels:
+  - bug
+  - triage
+body:
+  - type: textarea
+    attributes:
+      label: Bug Description
+      description: Please provide a clear description of the bug you are seeing
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: Please describe what you expected to happen
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots / Photos
+      description: If applicable, add visuals to help us understand your problem
+  - type: textarea
+    attributes:
+      label: Minimal Reproduction
+      description: |
+        If possible, provide minimal code in test format that reproduces the issue.
+        Please make sure the Host and Target sections contain all the relevant components.
+      placeholder: |
+        #include <testrunner/TestCase.h>
+
+        TEST_CASE("My Failing Code")
+        {
+          AssertEqual(1 + 1, 3);
+        }
+      render: cpp
+  - type: dropdown
+    attributes:
+      label: Host OS
+      description: Select the OS you are using as host
+      options:
+        - macOS
+        - Linux
+        - Windows
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Compiler
+      description: Please provide the compiler you are using (e.g. ARM GNU Toolchain 13.3.Rel1)
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Libraries
+      description: Please list the MinuteOS libraries you are using. You can paste the output of `git submodule` here
+      placeholder: |
+         0fa7f1b92288bfc3815e9eaf95c2970c15324c77 lib (heads/main)
+         2cb6872f85eae4fbfc77fb62db33f4470e68d124 lib-arm (heads/main)
+         e00e8c26d29324b8cf32f815b0a38a63cc475bfa lib-nvram (heads/main)
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Makefile
+      description: Please paste your Makefile here (at least the TARGET(S) and COMPONENTS)
+      placeholder: |
+        # Example
+        TARGET = stm32l47
+        COMPONENTS = kernel-app nvram
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Hardware
+      description: Please provide any additional relevant description of your hardware (dev kit, actual components used, etc.)
+      placeholder: |
+        - SiLabs SLSTK3701A Dev Kit
+        - EFM32GG11B820F2048GL192 MCU
+        - ...
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
